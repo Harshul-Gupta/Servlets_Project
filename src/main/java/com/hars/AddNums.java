@@ -16,12 +16,13 @@ public class AddNums extends HttpServlet
 		int i= Integer.parseInt(req.getParameter("num1"));
 		int j= Integer.parseInt(req.getParameter("num2"));
 		int k= i+j;
-		req.setAttribute("k", k);
+		//req.setAttribute("k", k);
 		
 		PrintWriter out= res.getWriter();
 		out.println("Result is "+ k);
-		RequestDispatcher rd= req.getRequestDispatcher("sq");
-		rd.include(req, res);
+		res.sendRedirect("sq?k="+k);
+//		RequestDispatcher rd= req.getRequestDispatcher("sq");
+//		rd.include(req, res);
 	}
 }
  

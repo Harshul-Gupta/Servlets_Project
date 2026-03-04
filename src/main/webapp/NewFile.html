@@ -1,16 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>YouTube</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube | Calculator</title>
+    <style>
+        /* Base Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+        }
+
+        /* Glassmorphism Card */
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 24px;
+            padding: 50px 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 100%;
+            max-width: 380px;
+        }
+
+        h2 {
+            margin-top: 0;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Form Controls */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 16px;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Submit Button */
+        input[type="submit"] {
+            width: 100%;
+            margin-top: 10px;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: #fff;
+            color: #764ba2;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="submit"]:active {
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-	Home
-	<form action="add" method = "get">
-		Enter 1st num: <input type= "text" name= "num1"><br>
-		Enter 2nd num: <input type= "text" name= "num2"><br>
-		<input type= "submit">
-	</form>
-	
+
+    <div class="container">
+        <h2>Welcome Home</h2>
+        <form action="add" method="get">
+            <div class="form-group">
+                <label>First Number</label>
+                <input type="text" name="num1" placeholder="e.g. 10" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Second Number</label>
+                <input type="text" name="num2" placeholder="e.g. 5" required>
+            </div>
+
+            <input type="submit" value="Calculate Square">
+        </form>
+    </div>
+
 </body>
 </html>
