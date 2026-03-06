@@ -8,6 +8,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class AddNums extends HttpServlet
 {
@@ -18,9 +19,9 @@ public class AddNums extends HttpServlet
 		int k= i+j;
 		//req.setAttribute("k", k);
 		
-		PrintWriter out= res.getWriter();
-		out.println("Result is "+ k);
-		res.sendRedirect("sq?k="+k);
+		HttpSession session= req.getSession();
+		session.setAttribute("k", k);
+		res.sendRedirect("sq");
 //		RequestDispatcher rd= req.getRequestDispatcher("sq");
 //		rd.include(req, res);
 	}
