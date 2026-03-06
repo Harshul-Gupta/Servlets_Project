@@ -2,7 +2,9 @@ package com.hars;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.CookieHandler;
 
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -11,9 +13,13 @@ import jakarta.servlet.http.HttpSession;
 public class SquareNum extends HttpServlet{
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException
 	{
-		//int k= (int) req.getAttribute("k");
-		HttpSession session= req.getSession();
-		int k= (int)session.getAttribute("k");
+		int k= 0;
+		Cookie cookie[]= req.getCookies();
+		for(Cookie c: cookie)
+		{
+			if(c.getName().equals("k"))
+				k= Integer.parseInt(c.getValue());
+		}
         int result = k * k;
 
         res.setContentType("text/html");
